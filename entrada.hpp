@@ -5,19 +5,29 @@ class Entrada
 {
     public:
 
-        Entrada(float x, float y, float largura, float altura, int dado);
+        Entrada(double x, double y, double largura, double altura, int dado);
         
         ~Entrada();
+
+        double obterX();
+
+        double obterY();
+
+        double obterLargura();
+
+        double obterAltura();
+
+        int obterDado();
         
     private:
 
-        float x_;
+        double x_;
 
-        float y_;
+        double y_;
 
-        float largura_;
+        double largura_;
 
-        float altura_;
+        double altura_;
 
         int dado_;
 
