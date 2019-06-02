@@ -5,7 +5,7 @@ class Entrada
 {
     public:
 
-        Entrada(float x, float y, float width, float height, int data);
+        Entrada(float x, float y, float largura, float altura, int dado);
         
         ~Entrada();
         
@@ -15,11 +15,11 @@ class Entrada
 
         float y_;
 
-        float width_;
+        float largura_;
 
-        float height_;
+        float altura_;
 
-        int data_;
+        int dado_;
 
 };
 
