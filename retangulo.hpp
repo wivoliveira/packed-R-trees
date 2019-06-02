@@ -1,19 +1,21 @@
 #ifndef __Retangulo_HPP__
 #define __Retangulo_HPP__
 
+const unsigned int N = 100000;
+
 class Retangulo
 {
     public:
 
-        Retangulo(double x, double y, double largura, double altura, int dado);
+        Retangulo();
+        
+        Retangulo(int x, int y, int largura, int altura, int dado);
         
         ~Retangulo();
 
-        Retangulo* filhos_;
+        vector <Retangulo> filhos_;
 
         Retangulo* pai_;
-
-        Retangulo gerarNoVazio();
 
         bool sobrepoe(Retangulo ret);
 
@@ -25,7 +27,7 @@ class Retangulo
 
         double obterArea();
 
-        Retangulo* dividirIrmaos();
+        vector<Retangulo> dividirIrmaos();
         
         int numeroFilhos();
 
@@ -41,13 +43,13 @@ class Retangulo
 
     private:
 
-        double x_;
+        int x_;
 
-        double y_;
+        int y_;
 
-        double largura_;
+        int largura_;
 
-        double altura_;
+        int altura_;
 
         int dado_;
 
