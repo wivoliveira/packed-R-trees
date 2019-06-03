@@ -9,12 +9,10 @@ class Curvahilbert
         
         ~Curvahilbert();
 
-        double coordenadasHilbert(int coordenadaMax, int x, int y);
-
         double intercalarBitsHilbert(int impar, int par);
-
-    private:
+        
+        double coordenadasHilbert(int coordenadaMax, int x, int y);        
 
 };
 
-#endif // __Utils_HPP__
+#endif // __Curvahilbert_HPP__

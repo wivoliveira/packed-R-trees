@@ -8,7 +8,28 @@ Curvahilbert::Curvahilbert() { }
 
 Curvahilbert::~Curvahilbert() { }
 
-double coordenadasHilbert(int coordenadaMax, int x, int y) {
+double Curvahilbert::intercalarBitsHilbert(int impar, int par) {
+
+    int val = 0;
+    int maximo = max(impar, par);
+    int n = 0;
+    while (maximo > 0) {
+        n++;
+        maximo >>= 1;
+    }
+
+    for (int i = 0; i < n; i++) {
+        int mascara = 1 << i;
+        int a = (par & mascara) > 0 ? (1 << (2*i)) : 0;
+        int b = (impar & mascara) > 0 ? (1 << (2*i+1)) : 0;
+        val += a + b;
+    }
+
+    return val;
+
+}
+
+double Curvahilbert::coordenadasHilbert(int coordenadaMax, int x, int y) {
         
     int mascara = (1 << coordenadaMax) - 1;
     int hilbertImpar = 0;
@@ -29,26 +50,5 @@ double coordenadasHilbert(int coordenadaMax, int x, int y) {
     hilbertImpar = (~v0 & (v1 ^ x)) | (v0 & (v1 ^ negY));
 
     return intercalarBitsHilbert(hilbertImpar, hilbertPar);
-
-}
-
-double intercalarBitsHilbert(int impar, int par) {
-
-    int val = 0;
-    int maximo = max(impar, par);
-    int n = 0;
-    while (maximo > 0) {
-        n++;
-        maximo >>= 1;
-    }
-
-    for (int i = 0; i < n; i++) {
-        int mascara = 1 << i;
-        int a = (par & mascara) > 0 ? (1 << (2*i)) : 0;
-        int b = (impar & mascara) > 0 ? (1 << (2*i+1)) : 0;
-        val += a + b;
-    }
-
-    return val;
 
 }
