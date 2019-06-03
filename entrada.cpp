@@ -1,8 +1,9 @@
+#include <iostream>
 #include "entrada.hpp"
 
 using namespace std;
 
-Entrada::Entrada(double x, double y, double largura, double altura, int dado) {
+Entrada::Entrada(int x, int y, int largura, int altura, int dado) {
 
     x_ = x;
     y_ = y;
@@ -13,22 +14,24 @@ Entrada::Entrada(double x, double y, double largura, double altura, int dado) {
 }
 
 Entrada::~Entrada() {
+
+    cout << "Entrada destruida!" << endl;
     
 }
 
-double Entrada::obterX() {
+int Entrada::obterX() {
     return x_;
 }
 
-double Entrada::obterY() {
+int Entrada::obterY() {
     return y_;
 }
 
-double Entrada::obterLargura() {
+int Entrada::obterLargura() {
     return largura_;
 }
 
-double Entrada::obterAltura() {
+int Entrada::obterAltura() {
     return altura_;
 }
 

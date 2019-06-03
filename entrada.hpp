@@ -5,29 +5,29 @@ class Entrada
 {
     public:
 
-        Entrada(double x, double y, double largura, double altura, int dado);
+        Entrada(int x, int y, int largura, int altura, int dado);
         
         ~Entrada();
 
-        double obterX();
+        int obterX();
 
-        double obterY();
+        int obterY();
 
-        double obterLargura();
+        int obterLargura();
 
-        double obterAltura();
+        int obterAltura();
 
         int obterDado();
         
     private:
 
-        double x_;
+        int x_;
 
-        double y_;
+        int y_;
 
-        double largura_;
+        int largura_;
 
-        double altura_;
+        int altura_;
 
         int dado_;
 
