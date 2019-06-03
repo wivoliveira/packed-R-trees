@@ -1,6 +1,8 @@
 #ifndef __Retangulo_HPP__
 #define __Retangulo_HPP__
 
+#include <vector>
+
 const unsigned int N = 100000;
 
 class Retangulo
@@ -13,7 +15,7 @@ class Retangulo
         
         ~Retangulo();
 
-        vector <Retangulo> filhos_;
+        std::vector<Retangulo> filhos_;
 
         Retangulo* pai_;
 
@@ -41,9 +43,9 @@ class Retangulo
 
         int obterDado();
 
-        vector<Retangulo> dividirIrmaos();
+        std::vector<Retangulo> dividirIrmaos();
         
-        size_t numeroFilhos();
+        std::size_t numeroFilhos();
 
         bool noFolha();
 
@@ -53,7 +55,7 @@ class Retangulo
 
         void removerFilho(Retangulo ret);
 
-        vector<Retangulo> obterSubArvore();
+        std::vector<Retangulo> obterSubArvore();
 
     private:
 

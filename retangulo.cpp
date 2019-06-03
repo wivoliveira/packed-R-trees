@@ -1,3 +1,4 @@
+#include <iostream>
 #include "retangulo.hpp"
 #include "curvahilbert.hpp"
 
@@ -5,10 +6,11 @@
 #include <math.h>
 #include <algorithm>  
 #include <tuple>
+#include <vector>
 
 using namespace std;
 
-const double MAX = numeric_limits<double>::max();
+const int MAX = numeric_limits<int>::max();
 
 Retangulo::Retangulo() {
 
@@ -32,6 +34,8 @@ Retangulo::Retangulo(int x, int y, int largura, int altura, int dado) {
 
 Retangulo::~Retangulo() {
     
+    cout << "Retangulo destruida!" << endl;
+
 }
 
 double Retangulo::obterX() {
@@ -111,7 +115,7 @@ double Retangulo::obterArea() {
 
 vector<Retangulo> Retangulo::dividirIrmaos() {
     
-    int pivo = floor(filhos_.size()/2);
+    int unsigned pivo = floor(filhos_.size()/2);
     Retangulo primeiroIrmao;
     Retangulo segundoIrmao;
 
@@ -119,7 +123,7 @@ vector<Retangulo> Retangulo::dividirIrmaos() {
 	int coordenadaMin = MAX;
 	int x, y;
 
-    for (int i = 0; i < filhos_.size(); ++i) {
+    for (int unsigned i = 0; i < filhos_.size(); ++i) {
 		x = ceil(filhos_[i].x_ + filhos_[i].largura_*0.5);
 		y = ceil(filhos_[i].y_ + filhos_[i].altura_*0.5);
 		coordenadaMax = max(coordenadaMax, max(x, y));
@@ -128,10 +132,10 @@ vector<Retangulo> Retangulo::dividirIrmaos() {
 
 	vector <Retangulo> ordenado;
     Curvahilbert ch;
-    for (int j = 0; j < ordenado.size(); ++j)
-	    ch.coordenadasHilbert(coordenadaMax - coordenadaMin, ceil(ordenado[j].x_ + ordenado[j].largura_*0.5) - coordenadaMin, ceil(ordenado[j].y_ + ordenado[j].altura_*0.5) - coordenadaMin);
+    for (int unsigned j = 0; j < ordenado.size(); ++j)
+	    ch.coordenadasHilbert(coordenadaMax - coordenadaMin, int(ceil(ordenado[j].x_ + ordenado[j].largura_*0.5)) - coordenadaMin, int(ceil(ordenado[j].y_ + ordenado[j].altura_*0.5)) - coordenadaMin);
 
-    for (int k = 0; k < ordenado.size(); ++k) {
+    for (int unsigned k = 0; k < ordenado.size(); ++k) {
 		if (k <= pivo){
     	    primeiroIrmao.inserirFilho(ordenado[k]);
         } else {
@@ -191,7 +195,7 @@ vector<Retangulo> Retangulo::obterSubArvore() {
 	    return resultado;
 	} else {
         vector<Retangulo> aux;
-        for (int i = 0; i < filhos_.size(); i++) {
+        for (int unsigned i = 0; i < filhos_.size(); i++) {
            aux = filhos_[i].obterSubArvore();
            resultado.insert(resultado.end(), aux.begin(), aux.end());
         }
