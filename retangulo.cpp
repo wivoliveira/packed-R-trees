@@ -152,7 +152,16 @@ void Retangulo::removerFilho(Retangulo ret) {
 	
 }
 
-Retangulo* Retangulo::obtemSubArvore() {
-	
+vector<Retangulo> Retangulo::obterSubArvore() {
+    
+    vector<Retangulo> resultado;
+
+    if (filhos_.size() == 0) {
+        resultado[0] = Retangulo(x_, y_, largura_, altura_, dado_); 
+	    return resultado;
+	} else {
+        // TO DO
+        return resultado
+    }
 
 }

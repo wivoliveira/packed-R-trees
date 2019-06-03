@@ -39,7 +39,7 @@ class Retangulo
 
         void removerFilho(Retangulo ret);
 
-        Retangulo* obtemSubArvore();
+        vector<Retangulo> obterSubArvore();
 
     private:
 
