@@ -60,7 +60,7 @@ int Retangulo::obterDado() {
 
 bool Retangulo::operator==(const Retangulo& ret) const
 {
-    return std::forward_as_tuple(x_, y_, largura_, altura_, dado_) < std::forward_as_tuple(ret.x_, ret.y_, ret.largura_, ret.altura_, ret.dado_);
+    return std::forward_as_tuple(x_, y_, largura_, altura_, dado_) == std::forward_as_tuple(ret.x_, ret.y_, ret.largura_, ret.altura_, ret.dado_);
 }
 
 bool Retangulo::operator!=(const Retangulo& ret) const 
@@ -70,13 +70,13 @@ bool Retangulo::operator!=(const Retangulo& ret) const
 
 bool Retangulo::sobrepoe(Retangulo ret) { 
     
-    return x_ < ret.x_ + ret.largura_ && x_ + largura_ > ret.x_ && y_ + altura_ > ret.y_ && ret.y_ + ret.altura_ > y_;
+    return ((x_ < ret.x_ + ret.largura_ && x_ + largura_ > ret.x_)  && (y_ + altura_ > ret.y_ && ret.y_ + ret.altura_ > y_));
 
 }
 
 bool Retangulo::contem(Retangulo ret) {
     
-    return x_ <= ret.x_ && x_ + largura_ >= ret.x_ + ret.largura_ && y_ <= ret.y_ && y_ + altura_ >= ret.y_ + ret.altura_;
+    return ((x_ <= ret.x_ && x_ + largura_ >= ret.x_ + ret.largura_) && (y_ <= ret.y_ && y_ + altura_ >= ret.y_ + ret.altura_));
 
 }
 
