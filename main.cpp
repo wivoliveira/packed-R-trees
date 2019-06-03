@@ -36,7 +36,7 @@ int main() {
     double elapsedSecsEnD = double(endEnD - beginEnD) / CLOCKS_PER_SEC;
     cout << "Entrada D - tempo: " << elapsedSecsEnD << " segundos!" << endl;
 
-    cout << "Entrada - tempo médio: " << (elapsedSecsEnA+elapsedSecsEnB+elapsedSecsEnC+elapsedSecsEnD)/4 << " segundos!" << endl;
+    cout << "Entrada - tempo medio: " << (elapsedSecsEnA+elapsedSecsEnB+elapsedSecsEnC+elapsedSecsEnD)/4 << " segundos!" << endl;
 
     // Definindo tipo de entrada para a RTree um a um
     clock_t beginRetA = clock();
@@ -63,9 +63,52 @@ int main() {
     double elapsedSecsRetD = double(endRetD - beginRetD) / CLOCKS_PER_SEC;
     cout << "Retangulo D - tempo: " << elapsedSecsRetD << " segundos!" << endl;
 
-    cout << "Retangulo - tempo médio: " << (elapsedSecsRetA+elapsedSecsRetB+elapsedSecsRetC+elapsedSecsRetD)/4 << " segundos!" << endl;
+    cout << "Retangulo - tempo medio: " << (elapsedSecsRetA+elapsedSecsRetB+elapsedSecsRetC+elapsedSecsRetD)/4 << " segundos!" << endl;
 
+    // Testando operações espaciais
+    if (retA.contem(retB))
+        cout << "Retangulo A contem Retangulo B" << endl;
+    else
+        cout << "Retangulo A nao contem Retangulo B" << endl;
+
+    if (retC.sobrepoe(retD))
+        cout << "Retangulo C sobrepoe Retangulo D" << endl;
+    else
+        cout << "Retangulo C nao sobrepoe Retangulo D" << endl;
+
+    Entrada enE = Entrada(0, 0, 10, 10, 100);
+    Retangulo retE = Retangulo(enE.obterX(), enE.obterY(), enE.obterLargura(), enE.obterAltura(), enE.obterDado());
     
+    if (retE.contem(retB))
+        cout << "Retangulo E contem Retangulo B" << endl;
+    else
+        cout << "Retangulo E nao contem Retangulo B" << endl;
+
+    if (retE.sobrepoe(retD))
+        cout << "Retangulo E sobrepoe Retangulo D" << endl;
+    else
+        cout << "Retangulo E nao sobrepoe Retangulo D" << endl;
+
+    // Testando operadores de comparacao definidos
+    if (retA == retB)
+        cout << "Retangulo A e igual a Retangulo B" << endl;
+    else
+        cout << "Retangulo A nao e igual a Retangulo B" << endl;
+
+    if (retA != retB)
+        cout << "Retangulo A e igual a Retangulo A" << endl;
+    else
+        cout << "Retangulo A nao e igual a Retangulo A" << endl;
+
+    if (retA == retA)
+        cout << "Retangulo A e igual a Retangulo A" << endl;
+    else
+        cout << "Retangulo A nao e igual a Retangulo A" << endl;
+
+    if (retA != retA)
+        cout << "Retangulo A e igual a Retangulo A" << endl;
+    else
+        cout << "Retangulo A nao e igual a Retangulo A" << endl;
 
     return 0;
 }
