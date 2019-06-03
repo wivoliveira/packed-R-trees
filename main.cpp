@@ -66,25 +66,49 @@ int main() {
     cout << "Retangulo - tempo medio: " << (elapsedSecsRetA+elapsedSecsRetB+elapsedSecsRetC+elapsedSecsRetD)/4 << " segundos!" << endl;
 
     // Testando operações espaciais
-    if (retA.contem(retB))
+    clock_t beginAContemB = clock();
+    bool retAContemB = retA.contem(retB);
+    clock_t endAContemB = clock();
+    double elapsedSecsAContemB = double(endAContemB - beginAContemB) / CLOCKS_PER_SEC;
+    cout << "Contem - tempo: " << elapsedSecsAContemB << " segundos!" << endl;
+
+    if (retAContemB)
         cout << "Retangulo A contem Retangulo B" << endl;
     else
         cout << "Retangulo A nao contem Retangulo B" << endl;
 
-    if (retC.sobrepoe(retD))
+    clock_t beginCSobrepoeD = clock();
+    bool retCSobrepoeD = retC.sobrepoe(retD);
+    clock_t endCSobrepoeD = clock();
+    double elapsedSecsCSobrepoeD = double(endCSobrepoeD - beginCSobrepoeD) / CLOCKS_PER_SEC;
+    cout << "Contem - tempo: " << elapsedSecsCSobrepoeD << " segundos!" << endl;
+
+    if (retCSobrepoeD)
         cout << "Retangulo C sobrepoe Retangulo D" << endl;
     else
         cout << "Retangulo C nao sobrepoe Retangulo D" << endl;
 
     Entrada enE = Entrada(0, 0, 10, 10, 100);
     Retangulo retE = Retangulo(enE.obterX(), enE.obterY(), enE.obterLargura(), enE.obterAltura(), enE.obterDado());
-    
-    if (retE.contem(retB))
+
+    clock_t beginEContemB = clock();
+    bool retEContemB = retE.contem(retB);
+    clock_t endEContemB = clock();
+    double elapsedSecsEContemB = double(endEContemB - beginEContemB) / CLOCKS_PER_SEC;
+    cout << "Contem - tempo: " << elapsedSecsEContemB << " segundos!" << endl;
+
+    if (retEContemB)
         cout << "Retangulo E contem Retangulo B" << endl;
     else
         cout << "Retangulo E nao contem Retangulo B" << endl;
 
-    if (retE.sobrepoe(retD))
+    clock_t beginESobrepoeD = clock();
+    bool retESobrepoeD = retE.sobrepoe(retD);
+    clock_t endESobrepoeD = clock();
+    double elapsedSecsESobrepoeD = double(endESobrepoeD - beginESobrepoeD) / CLOCKS_PER_SEC;
+    cout << "Contem - tempo: " << elapsedSecsESobrepoeD << " segundos!" << endl;
+
+    if (retESobrepoeD)
         cout << "Retangulo E sobrepoe Retangulo D" << endl;
     else
         cout << "Retangulo E nao sobrepoe Retangulo D" << endl;
