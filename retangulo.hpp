@@ -17,6 +17,10 @@ class Retangulo
 
         Retangulo* pai_;
 
+        bool operator==(const Retangulo &ret) const;
+
+        bool operator!=(const Retangulo& ret) const;
+
         bool sobrepoe(Retangulo ret);
 
         bool contem(Retangulo ret);
@@ -27,9 +31,19 @@ class Retangulo
 
         double obterArea();
 
+        double obterX();
+
+        double obterY();
+
+        double obterLargura();
+
+        double obterAltura();
+
+        int obterDado();
+
         vector<Retangulo> dividirIrmaos();
         
-        int numeroFilhos();
+        size_t numeroFilhos();
 
         bool noFolha();
 

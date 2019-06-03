@@ -4,6 +4,7 @@
 #include <limits>
 #include <math.h>
 #include <algorithm>  
+#include <tuple>
 
 using namespace std;
 
@@ -31,6 +32,36 @@ Retangulo::Retangulo(int x, int y, int largura, int altura, int dado) {
 
 Retangulo::~Retangulo() {
     
+}
+
+double Retangulo::obterX() {
+    return x_;
+}
+
+double Retangulo::obterY() {
+    return y_;
+}
+
+double Retangulo::obterLargura() {
+    return largura_;
+}
+
+double Retangulo::obterAltura() {
+    return altura_;
+}
+
+int Retangulo::obterDado() {
+    return dado_;
+}
+
+bool Retangulo::operator==(const Retangulo& ret) const
+{
+    return std::forward_as_tuple(x_, y_, largura_, altura_, dado_) < std::forward_as_tuple(ret.x_, ret.y_, ret.largura_, ret.altura_, ret.dado_);
+}
+
+bool Retangulo::operator!=(const Retangulo& ret) const 
+{
+    return !(*this == ret);
 }
 
 bool Retangulo::sobrepoe(Retangulo ret) { 
@@ -116,7 +147,7 @@ vector<Retangulo> Retangulo::dividirIrmaos() {
 
 }
 
-int Retangulo::numeroFilhos() {
+size_t Retangulo::numeroFilhos() {
 
     return filhos_.size();
 
@@ -142,7 +173,6 @@ void Retangulo::inserirFilho(Retangulo ret) {
 
 }
 
-
 void Retangulo::removerFilho(Retangulo ret) {
     
     std::vector<Retangulo>::iterator itr = std::find(filhos_.begin(), filhos_.end(), ret);
@@ -160,8 +190,12 @@ vector<Retangulo> Retangulo::obterSubArvore() {
         resultado[0] = Retangulo(x_, y_, largura_, altura_, dado_); 
 	    return resultado;
 	} else {
-        // TO DO
-        return resultado
+        vector<Retangulo> aux;
+        for (int i = 0; i < filhos_.size(); i++) {
+           aux = filhos_[i].obterSubArvore();
+           resultado.insert(resultado.end(), aux.begin(), aux.end());
+        }
+        return resultado;
     }
 
 }
